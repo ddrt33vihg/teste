@@ -36,21 +36,18 @@
   </div>
 
   <script>
-    const fpPromise = import('https://fpjscdn.net/v3/Lu1G8yGMHJfYrz5HeAG2')
-      .then(FingerprintJS => FingerprintJS.load());
+  // Initialize the agent on page load.
+  const fpPromise = import('https://fpjscdn.net/v3/FjcGVAsgmWmRlMmwIyeM')
+    .then(FingerprintJS => FingerprintJS.load())
 
-    fpPromise
-      .then(fp => fp.get())
-      .then(result => {
-        const visitorId = result.visitorId;
-        document.getElementById('visitorId').textContent = visitorId;
-        console.log("Visitor ID:", visitorId);
-      })
-      .catch(err => {
-        document.getElementById('visitorId').textContent = 'Error loading fingerprint';
-        console.error(err);
-      });
-  </script>
+  // Get the visitorId when you need it.
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      const visitorId = result.visitorId
+      console.log(visitorId)
+    })
+</script>
 </body>
 </html>
 
